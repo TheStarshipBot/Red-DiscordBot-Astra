@@ -1610,7 +1610,6 @@ class Mutes(VoiceMutes, commands.Cog, metaclass=CompositeMetaClass):
                 "until": until.timestamp() if until else None,
             }
             try:
-                await asyncio.sleep(2)
                 await user.add_roles(role, reason=reason)
                 await self.config.guild(guild).muted_users.set(self._server_mutes[guild.id])
             except discord.errors.Forbidden:
