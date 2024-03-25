@@ -781,6 +781,7 @@ class Mutes(VoiceMutes, commands.Cog, metaclass=CompositeMetaClass):
                     )
                 else:
                     until = None
+                await asyncio.sleep(5)
                 await self.mute_user(
                     guild, guild.me, member, until, _("Previously muted in this server.")
                 )
@@ -1609,6 +1610,7 @@ class Mutes(VoiceMutes, commands.Cog, metaclass=CompositeMetaClass):
                 "until": until.timestamp() if until else None,
             }
             try:
+                await asyncio.sleep(2)
                 await user.add_roles(role, reason=reason)
                 await self.config.guild(guild).muted_users.set(self._server_mutes[guild.id])
             except discord.errors.Forbidden:
