@@ -781,7 +781,7 @@ class Mutes(VoiceMutes, commands.Cog, metaclass=CompositeMetaClass):
                     )
                 else:
                     until = None
-                await asyncio.sleep(5)
+                await asyncio.sleep(3)
                 await self.mute_user(
                     guild, guild.me, member, until, _("Previously muted in this server.")
                 )
